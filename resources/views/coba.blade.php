@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <p>china</p>
-    <p>halo</p>
-</body>
-</html>
+<x-app>
+    <h1 class="text-8xl font-bold underline text-red-600">Mouse gaming pkl samsat</h1>
+</x-app>

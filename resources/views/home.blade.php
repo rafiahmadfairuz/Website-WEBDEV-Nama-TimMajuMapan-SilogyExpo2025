@@ -1,90 +1,7 @@
 <x-app>
     <div class="">
-        <header class="absolute inset-x-0 top-0 z-50">
-            <div class="mx-auto mt-4 relative isolate px-4 sm:px-6 lg:px-8">
-                <nav class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 rounded-2xl box-border bg-[#1b5a4f]"
-                    aria-label="Global">
-                    <div class="flex lg:flex-1">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
-                            <span class="text-white font-bold text-lg sm:text-xl">Legalitas<span
-                                    style="color: #faa743">ku</span></span>
-                        </a>
-                    </div>
-                    <div class="flex lg:hidden">
-                        <button type="button"
-                            class="mobile-menu-toggle -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
-                            aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true" data-slot="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="hidden lg:flex lg:gap-x-6 xl:gap-x-10">
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Beranda</a>
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Tentang Kami</a>
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Layanan Kami</a>
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Benefit</a>
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Cara Daftar</a>
-                        <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">FAQ</a>
-                    </div>
-                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#"
-                            class="text-sm font-semibold bg-white py-2 px-4 rounded-3xl hover:bg-[#faa743] hover:text-[#1b5a4f] transition">Coba
-                            Sekarang</a>
-                    </div>
-                </nav>
-                -               <div class="hidden lg:hidden" id="mobile-menu" role="dialog" aria-modal="true">
-                    <div class="fixed inset-0 z-50 bg-black/50"></div>
-                    <div
-                        class="fixed inset-y-0 right-0 z-50 w-full sm:w-80 overflow-y-auto bg-white px-4 sm:px-6 py-6 sm:ring-1 sm:ring-gray-900/10">
-                        <div class="flex items-center justify-between">
-                            <a href="#" class="-m-1.5 p-1.5">
-                                <span class="sr-only">Your Company</span>
-                                <span class="text-[#1b5a4f] font-bold text-lg">Legalitas<span
-                                        style="color: #faa743">ku</span></span>
-                            </a>
-                            <button type="button" class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700">
-                                <span class="sr-only">Close menu</span>
-                                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true" data-slot="icon">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mt-6 flow-root">
-                            <div class="-my-6 divide-y divide-gray-500/10">
-                                <div class="space-y-2 py-6">
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Beranda</a>
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Tentang
-                                        Kami</a>
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Layanan
-                                        Kami</a>
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Benefit</a>
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Cara
-                                        Daftar</a>
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">FAQ</a>
-                                </div>
-                                <div class="py-6">
-                                    <a href="#"
-                                        class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50">Coba
-                                        Sekarang</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <x-navbar />
+
         <div class="relative isolate px-4 sm:px-6 lg:px-8 pt-12 sm:pt-10">
             <div class="mx-auto w-full">
                 <div class="w-full mt-10 sm:mt-14 rounded-2xl bg-[#1b5a4f] -pb-1 sm:pb-2 overflow-hidden relative">
@@ -111,8 +28,8 @@
                             <div class="flex items-center justify-between w-28 sm:w-36 md:w-40">
                                 <div
                                     class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-[#abe1ca]">
-                                    <svg class="h-4 w-4 sm:h-8 sm:w-8" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <svg class="h-4 w-4 sm:h-8 sm:w-8" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                                     </svg>
@@ -143,7 +60,7 @@
             <p class="text-gray-600 mt-12 w-max mx-auto">Bagaimana Kami Membantu UMKM</p>
             <section class="py-20">
                 <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-start gap-12">
-                    -                    <div class="lg:w-1/2">
+                    - <div class="lg:w-1/2">
                         <h2 class="text-4xl font-bold text-[#1b5a4f] mb-6 leading-snug">
                             Legalitas Mudah Untuk UMKM
                         </h2>
@@ -423,7 +340,7 @@
                         <p class="text-gray-700 text-sm">Masukkan nama, jenis usaha, dan lokasi. Sistem akan
                             menyesuaikan legalitas.</p>
                     </div>
-                 <div class="p-6 rounded-xl shadow hover:shadow-lg transition">
+                    <div class="p-6 rounded-xl shadow hover:shadow-lg transition">
                         <div class="flex items-center mb-4">
                             <div class="p-3 rounded-full mr-3">
                                 <svg class="w-6 h-6 text-[#1b5a4f]" fill="none" stroke="currentColor"
@@ -437,7 +354,7 @@
                         <p class="text-gray-700 text-sm">Sistem menampilkan legalitas wajib & opsional sesuai usaha
                             Anda.</p>
                     </div>
-                 <div class=" p-6 rounded-xl shadow hover:shadow-lg transition">
+                    <div class=" p-6 rounded-xl shadow hover:shadow-lg transition">
                         <div class="flex items-center mb-4">
                             <div class="p-3 rounded-full mr-3">
                                 <svg class="w-6 h-6 text-[#1b5a4f]" fill="none" stroke="currentColor"
@@ -557,50 +474,8 @@
                 </div>
             </div>
         </section>
-        <footer class="bg-[#1b5a4f] text-white py-12 px-6 md:px-12 lg:px-24">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
- <div class="flex flex-col space-y-10">
-    <span class="text-white font-bold text-3xl sm:text-3xl">
-        Legalitas<span style="color: #faa743">ku</span>
-    </span>
-    <p class="text-gray-300 text-sm">
-        Platform yang membantu UMKM memahami dan mengurus legalitas usaha secara mudah, cepat, dan terarah.
-    </p>
-</div>
+        <x-footer />
 
-                <div>
-                    <h3 class="font-semibold mb-3">Navigasi</h3>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="#beranda" class="hover:underline">Beranda</a></li>
-                        <li><a href="#benefit" class="hover:underline">Manfaat</a></li>
-                        <li><a href="#cara-daftar" class="hover:underline">Cara Daftar</a></li>
-                        <li><a href="#faq" class="hover:underline">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-3">Bantuan</h3>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="#" class="hover:underline">Panduan Pengguna</a></li>
-                        <li><a href="#" class="hover:underline">Konsultasi</a></li>
-                        <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
-                        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-3">Kontak Kami</h3>
-                    <p class="text-gray-300 text-sm mb-2">Email: support@legalease.com</p>
-                    <p class="text-gray-300 text-sm">WhatsApp: +62 812-3456-7890</p>
-                    <div class="mt-4 flex space-x-4">
-                        <a href="#" class="hover:text-gray-100"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gray-100"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gray-100"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 border-t border-[#d1e2dd] pt-6 text-center text-sm text-gray-400">
-                © 2025 LegalEase. All rights reserved.
-            </div>
-        </footer>
     </div>
     <script>
         document.querySelectorAll('.mobile-menu-toggle').forEach(button => {

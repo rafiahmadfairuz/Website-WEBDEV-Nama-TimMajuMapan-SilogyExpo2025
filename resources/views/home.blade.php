@@ -559,14 +559,15 @@
         </section>
         <footer class="bg-[#1b5a4f] text-white py-12 px-6 md:px-12 lg:px-24">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <span class="text-white font-bold text-3xl sm:text-3xl pb-5">Legalitas<span
-                            style="color: #faa743">ku</span></span>
-                    <p class="text-gray-300 text-sm">
-                        Platform yang membantu UMKM memahami dan mengurus legalitas usaha secara mudah, cepat, dan
-                        terarah.
-                    </p>
-                </div>
+ <div class="flex flex-col space-y-10">
+    <span class="text-white font-bold text-3xl sm:text-3xl">
+        Legalitas<span style="color: #faa743">ku</span>
+    </span>
+    <p class="text-gray-300 text-sm">
+        Platform yang membantu UMKM memahami dan mengurus legalitas usaha secara mudah, cepat, dan terarah.
+    </p>
+</div>
+
                 <div>
                     <h3 class="font-semibold mb-3">Navigasi</h3>
                     <ul class="space-y-2 text-gray-300 text-sm">

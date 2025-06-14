@@ -14,5 +14,8 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', HomeController::class)->name('home');
-    Route::get('/formLegalitas', [LegalitasController::class, 'viewLegalitasForm'])->name('view.legalitas.form');
 });
+Route::get('/userLegalitas', function () {
+    return view('UserLegalitas.RecomendLegalitas');
+});
+Route::get('/formLegalitas', [LegalitasController::class, 'viewLegalitasForm'])->name('view.legalitas.form');

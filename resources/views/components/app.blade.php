@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-wY5Kc1hxz3fI6YrKXZTLOIVmW2r+yCwCTI05N8Hc5w+AkFq9o1E5O6Z3hAk/5lzKJ9a9tNppxY2oCJlINmR9Hg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
     {{ $slot }}

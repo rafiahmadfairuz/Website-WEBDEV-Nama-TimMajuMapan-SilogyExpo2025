@@ -1,78 +1,69 @@
 <x-app>
-    <nav class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 box-border bg-[#1b5a4f]"
-        aria-label="Global">
-        <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <span class="text-white font-bold text-2xl sm:text-[18px]">Legalitas<span
-                        style="color: #faa743">ku</span></span>
-            </a>
-        </div>
-        <div class="flex lg:hidden">
-            <button type="button"
-                class="mobile-menu-toggle -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    aria-hidden="true" data-slot="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-    </nav>
-  <section class="flex items-center justify-center bg-[#f5f5f5] px-4 py-10">
-    <div class="bg-white shadow-lg rounded-xl w-full max-w-md p-8">
-      <h2 class="text-2xl font-bold text-[#1b5a4f] mb-2">Masuk ke Akun Anda</h2>
-      <p class="text-sm text-gray-600 mb-6">Silakan masuk untuk melanjutkan ke dashboard.</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-      <!-- Form Login -->
-      <form action="#" method="POST" class="space-y-5">
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-          <input type="email" id="email" name="email" required
-                 class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b5a4f]" />
-        </div>
+    <section class="min-h-screen flex items-center justify-center bg-[#f5f5f5] px-4 py-10">
+        <div class="bg-white shadow-xl rounded-2xl w-full max-w-md p-8">
+            <h2 class="text-3xl font-bold text-center text-[#1b5a4f] mb-2">Selamat Datang</h2>
+            <p class="text-sm text-center text-gray-600 mb-6">Silakan masuk untuk melanjutkan ke dashboard.</p>
 
-        <div>
-          <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
-          <input type="password" id="password" name="password" required
-                 class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b5a4f]" />
-        </div>
+            <form action="{{ route('login') }}" method="POST" class="space-y-5">
+                @csrf
 
-        <div class="flex justify-between items-center text-sm">
-          <label class="flex items-center space-x-2">
-            <input type="checkbox" class="text-[#1b5a4f]" />
-            <span>Ingat saya</span>
-          </label>
-          <a href="#" class="text-[#1b5a4f] hover:underline">Lupa kata sandi?</a>
-        </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pr-3
+                            {{ $errors->has('email') ? 'border-red-500 text-red-500' : 'border-[#1b5a4f] text-[#1b5a4f]' }}">
+                            <i class="fas {{ $errors->has('email') ? 'fa-exclamation-triangle' : 'fa-envelope' }}"></i>
+                        </div>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email anda"
+                            value="{{ old('email') }}" required
+                            class="w-full pl-12 pr-4 py-2 border
+                                {{ $errors->has('email') ? 'border-red-500' : 'border-gray-300' }}
+                                rounded-lg focus:outline-none focus:ring-2
+                                {{ $errors->has('email') ? 'focus:ring-red-500' : 'focus:ring-[#1b5a4f]' }} transition" />
+                    </div>
+                    @error('email')
+                        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
 
-        <button type="submit"
-                class="w-full bg-[#1b5a4f] hover:bg-[#103d36] text-white font-semibold py-2 px-4 rounded-lg transition duration-300 cursor-pointer">
-          Masuk
-        </button>
-      </form>
-                  <div class="flex items-center my-6">
-                <hr class="flex-grow border-gray-300" />
-                <span class="mx-3 text-gray-500 text-sm">Atau masuk dengan</span>
-                <hr class="flex-grow border-gray-300" />
-            </div>
-                        <button class="w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 font-medium mb-3 hover:bg-gray-50">
-                <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google" />
-                Masuk dengan Google
-            </button>
-            <button class="w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-2 font-medium hover:bg-gray-50">
-                <img src="https://www.svgrepo.com/show/303229/microsoft-logo.svg" class="w-5 h-5" alt="Microsoft" />
-                Masuk dengan Google
-            </button>
-      <p class="text-sm text-center text-gray-600 mt-6">
-        Belum punya akun?
-        <a href="#" class="text-[#1b5a4f] font-medium hover:underline">Daftar sekarang</a>
-      </p>
-    </div>
-  </section>
-  <footer class="bg-[#1b5a4f] text-white text-center py-4 mb-0">
-    <p class="text-sm">&copy; 2025 LegalEase. All rights <span class="text-[#faa743]">reserved.</span></p>
-  </footer>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Kata Sandi</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pr-3 
+                            {{ $errors->has('password') ? 'border-red-500 text-red-500' : 'border-[#1b5a4f] text-[#1b5a4f]' }}">
+                            <i class="fas {{ $errors->has('password') ? 'fa-exclamation-triangle' : 'fa-lock' }}"></i>
+                        </div>
+                        <input type="password" id="password" name="password" placeholder="Masukkan kata sandi"
+                            required
+                            class="w-full pl-12 pr-4 py-2 border
+                                {{ $errors->has('password') ? 'border-red-500' : 'border-gray-300' }}
+                                rounded-lg focus:outline-none focus:ring-2
+                                {{ $errors->has('password') ? 'focus:ring-red-500' : 'focus:ring-[#1b5a4f]' }} transition" />
+                    </div>
+                    @error('password')
+                        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="flex justify-start items-center text-sm">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="remember" class="accent-[#1b5a4f]" />
+                        <span>Ingat saya</span>
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-[#1b5a4f] hover:bg-[#13433b] text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                    Masuk
+                </button>
+            </form>
+
+            <p class="text-sm text-center text-gray-600 mt-6">
+                Belum punya akun?
+                <a href="{{ route('view.register') }}" class="text-[#1b5a4f] font-medium hover:underline">Daftar sekarang</a>
+            </p>
+        </div>
+    </section>
 </x-app>

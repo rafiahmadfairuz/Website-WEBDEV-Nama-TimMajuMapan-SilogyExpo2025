@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
+
+class AuthController extends Controller
+{
+    public function viewRegister()
+    {
+        return view('Auth.register');
+    }
+
+    public function storeRegister(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'username' => 'required|string|min:3|max:20|unique:users,username',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|string|min:6|confirmed',
+            ]);
+
+            $user = User::create([
+                'username' => $validated['username'],
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+            ]);
+
+            Auth::login($user);
+
+            return redirect()->route('dashboard')->with('success', 'Registrasi berhasil!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()
+                ->withErrors($e->validator)
+                ->withInput();
+        } catch (\Exception $e) {
+            Log::error('Gagal register: ' . $e->getMessage());
+
+            return back()
+                ->withErrors(['general' => 'Terjadi kesalahan, coba lagi nanti.'])
+                ->withInput();
+        }
+    }
+
+
+    public function viewLogin()
+    {
+        return view('Auth.login');
+    }
+
+    public function storeLogin(Request $request)
+    {
+        try {
+            $credentials = $request->validate([
+                'email' => 'required|email',
+                'password' => 'required|string',
+            ]);
+
+            $remember = $request->has('remember');
+
+            if (Auth::attempt($credentials, $remember)) {
+                $request->session()->regenerate();
+
+                return redirect()->intended(route('dashboard'))->with('success', 'Berhasil login!');
+            }
+
+            return back()
+                ->withErrors(['email' => 'Email atau password salah'])
+                ->withInput();
+        } catch (ValidationException $e) {
+            return back()
+                ->withErrors($e->validator)
+                ->withInput();
+        } catch (\Exception $e) {
+            Log::error('Login error: ' . $e->getMessage());
+
+            return back()
+                ->withErrors(['general' => 'Terjadi kesalahan saat login.'])
+                ->withInput();
+        }
+    }
+}

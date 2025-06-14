@@ -11,3 +11,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('Auth.register');
 });
+Route::get('/legalitas', function () {
+    return view('UserLegalitas.formUserLegalitas');
+});
+

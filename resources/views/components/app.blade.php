@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,28 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
+
 <body>
     {{ $slot }}
+    @if (session('success'))
+        <x-modal id="successModal" type="success" title="Sukses" :message="session('success')" />
+    @endif
+
+    @if (session('error'))
+        <x-modal id="errorModal" type="error" title="Gagal" :message="session('error')" />
+    @endif
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        @if (session('success'))
+            document.getElementById('successModal')?.classList.remove('hidden');
+        @endif
+
+        @if (session('error'))
+            document.getElementById('errorModal')?.classList.remove('hidden');
+        @endif
+    });
+</script>
+
+
 </html>

@@ -30,7 +30,6 @@ return new class extends Migration
             ]);
             $table->enum('tipe', ['UMKM', 'PT', 'CV']);
             $table->enum('model', ['Produksi Sendiri', 'Distributor', 'Jasa']);
-            $table->string('lokasi')->nullable();
             $table->enum('status_izin', ['Belum Lengkap', 'Lengkap'])->default('Belum Lengkap');
             $table->timestamps();
         });

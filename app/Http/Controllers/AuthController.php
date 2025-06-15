@@ -33,20 +33,21 @@ class AuthController extends Controller
 
             Auth::login($user);
 
-            return redirect()->route('dashboard')->with('success', 'Registrasi berhasil!');
-        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->route('home')
+                ->with('success', 'Registrasi berhasil! Selamat datang, ' . $user->username . '.');
+        } catch (ValidationException $e) {
             return back()
+                ->with('error', 'Validasi gagal. Mohon cek input Anda.')
                 ->withErrors($e->validator)
                 ->withInput();
         } catch (\Exception $e) {
             Log::error('Gagal register: ' . $e->getMessage());
 
             return back()
-                ->withErrors(['general' => 'Terjadi kesalahan, coba lagi nanti.'])
+                ->with('error', 'Terjadi kesalahan saat registrasi. Silakan coba lagi nanti.' . $e->getMessage())
                 ->withInput();
         }
     }
-
 
     public function viewLogin()
     {
@@ -65,23 +66,34 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials, $remember)) {
                 $request->session()->regenerate();
-
-                return redirect()->intended(route('dashboard'))->with('success', 'Berhasil login!');
+                return redirect()->intended(route('home'))
+                    ->with('success', 'Berhasil login! Selamat datang kembali.');
             }
 
             return back()
-                ->withErrors(['email' => 'Email atau password salah'])
+                ->with('error', 'Email atau password salah.')
                 ->withInput();
         } catch (ValidationException $e) {
             return back()
+                ->with('error', 'Validasi gagal. Mohon cek input Anda.')
                 ->withErrors($e->validator)
                 ->withInput();
         } catch (\Exception $e) {
             Log::error('Login error: ' . $e->getMessage());
 
             return back()
-                ->withErrors(['general' => 'Terjadi kesalahan saat login.'])
+                ->with('error', 'Terjadi kesalahan saat login. Silakan coba lagi nanti.')
                 ->withInput();
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login')->with('success', 'Anda berhasil logout.');
     }
 }

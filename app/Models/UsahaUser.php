@@ -9,4 +9,6 @@ class UsahaUser extends Model
 {
     /** @use HasFactory<\Database\Factories\UsahaUserFactory> */
     use HasFactory;
+    protected $guarded = ['id'];
+
 }

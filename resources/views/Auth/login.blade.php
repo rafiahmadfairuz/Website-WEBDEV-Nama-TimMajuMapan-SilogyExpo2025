@@ -1,5 +1,6 @@
 <x-app>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    @section('title', 'Login')
+
 
     <section class="min-h-screen flex items-center justify-center bg-[#f5f5f5] px-4 py-10">
         <div class="bg-white shadow-xl rounded-2xl w-full max-w-md p-8">
@@ -31,7 +32,7 @@
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Kata Sandi</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pr-3 
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pr-3
                             {{ $errors->has('password') ? 'border-red-500 text-red-500' : 'border-[#1b5a4f] text-[#1b5a4f]' }}">
                             <i class="fas {{ $errors->has('password') ? 'fa-exclamation-triangle' : 'fa-lock' }}"></i>
                         </div>

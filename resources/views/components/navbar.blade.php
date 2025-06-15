@@ -29,11 +29,28 @@
                 <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">Cara Daftar</a>
                 <a href="#" class="text-sm font-semibold text-white hover:text-[#faa743]">FAQ</a>
             </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#"
-                    class="text-sm font-semibold bg-white py-2 px-4 rounded-3xl hover:bg-[#faa743] hover:text-[#1b5a4f] transition">Coba
-                    Sekarang</a>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center gap-4">
+
+                @auth
+                    <a href="{{ route('profile') }}" class="flex items-center gap-2">
+                        <div
+                            class="rounded-full h-8 w-8 flex items-center justify-center text-[#1b5a4f] border bg-[#faa743] font-bold uppercase">
+                            {{ strtoupper(Auth::user()->username[0]) }}
+                        </div>
+                        <span
+                            class="text-sm text-[#1b5a4f] font-semibold hidden lg:inline">{{ Auth::user()->username }}</span>
+                    </a>
+                @endauth
+
+                @guest
+                    <a href="{{ route('view.legalitas.form') }}"
+                        class="text-sm font-semibold bg-white py-2 px-4 rounded-3xl hover:bg-[#faa743] hover:text-[#1b5a4f] transition">
+                        Coba Sekarang
+                    </a>
+                @endguest
+
             </div>
+
         </nav>
         <div class="hidden lg:hidden" id="mobile-menu" role="dialog" aria-modal="true">
             <div class="fixed inset-0 z-50 bg-black/50"></div>
@@ -45,8 +62,7 @@
                         <span class="text-[#1b5a4f] font-bold text-lg">Legalitas<span
                                 style="color: #faa743">ku</span></span>
                     </a>
-                    <button type="button"
-                        class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700">
+                    <button type="button" class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700">
                         <span class="sr-only">Close menu</span>
                         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                             aria-hidden="true" data-slot="icon">
@@ -84,4 +100,3 @@
         </div>
     </div>
 </header>
-

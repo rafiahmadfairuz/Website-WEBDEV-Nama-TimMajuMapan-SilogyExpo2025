@@ -18,4 +18,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/userLegalitas', function () {
     return view('UserLegalitas.RecomendLegalitas');
 });
+Route::get('/profile', function () {
+    return view('profile');
+});
+Route::get('/', function () {
+    return view('home');
+})->name('profile');
 Route::get('/formLegalitas', [LegalitasController::class, 'viewLegalitasForm'])->name('view.legalitas.form');

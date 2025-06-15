@@ -35,7 +35,7 @@
                     Sekarang</a>
             </div>
         </nav>
-        - <div class="hidden lg:hidden" id="mobile-menu" role="dialog" aria-modal="true">
+        <div class="hidden lg:hidden" id="mobile-menu" role="dialog" aria-modal="true">
             <div class="fixed inset-0 z-50 bg-black/50"></div>
             <div
                 class="fixed inset-y-0 right-0 z-50 w-full sm:w-80 overflow-y-auto bg-white px-4 sm:px-6 py-6 sm:ring-1 sm:ring-gray-900/10">
@@ -45,7 +45,8 @@
                         <span class="text-[#1b5a4f] font-bold text-lg">Legalitas<span
                                 style="color: #faa743">ku</span></span>
                     </a>
-                    <button type="button" class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700">
+                    <button type="button"
+                        class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700">
                         <span class="sr-only">Close menu</span>
                         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                             aria-hidden="true" data-slot="icon">
@@ -83,3 +84,4 @@
         </div>
     </div>
 </header>
+
